@@ -27,7 +27,7 @@ export function ImageComponent() {
 
   const { getRootProps, getInputProps, isDragAccept } = useDropzone({
     maxFiles: 1,
-    accept: 'image/*',
+    accept: 'image/*,.glb,.gltf',
     onDrop,
     disabled,
   })
@@ -36,7 +36,7 @@ export function ImageComponent() {
   return (
     <Row input>
       <Label>{label}</Label>
-      <ImageContainer>
+      {/*<ImageContainer>
         <ImagePreview
           ref={popinRef}
           hasImage={!!value}
@@ -49,7 +49,7 @@ export function ImageComponent() {
             <Overlay onPointerUp={hide} style={{ cursor: 'pointer' }} />
             <ImageLargePreview ref={wrapperRef} style={{ backgroundImage: `url(${value})` }} />
           </Portal>
-        )}
+        )}*/}
         <DropZone {...(getRootProps({ isDragAccept }) as any)}>
           <input {...getInputProps()} />
           <Instructions>{isDragAccept ? 'drop image' : 'click or drop'}</Instructions>
